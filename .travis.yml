@@ -6,6 +6,7 @@ before_install:
   - curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
 script:
   - ls
+  - ls
 notifications:
   email:
     on_success: never
