@@ -1,0 +1,11 @@
+language: generic
+git:
+  depth: 1
+before_install:
+  - sudo apt-get update -qq
+script:
+  - ls
+notifications:
+  email:
+    on_success: never
+    on_failure: always
