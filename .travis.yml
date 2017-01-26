@@ -3,6 +3,7 @@ git:
   depth: 1
 before_install:
   - sudo apt-get update -qq
+  - curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
 script:
   - ls
 notifications:
