@@ -5,22 +5,10 @@ language: generic
 git:
   depth: 1
 before_install:
-
-# add llvm to apt
-  -echo -e "deb http://apt.llvm.org/precise/ llvm-toolchain-precise main\n" \
-    "deb-src http://apt.llvm.org/precise/ llvm-toolchain-precise main\n" >> /etc/apt/sources.list
-  
-# add llvm 3.6 to apt
-  -echo -e "# 3.6\n" \
-    "deb http://apt.llvm.org/precise/ llvm-toolchain-precise-3.6 main\n" \
-    "deb-src http://apt.llvm.org/precise/ llvm-toolchain-precise-3.6 main\n" >> /etc/apt/sources.list
-  
-# add llvm's key to apt
+  -echo -e "deb http://apt.llvm.org/precise/ llvm-toolchain-precise main\n" "deb-src http://apt.llvm.org/precise/ llvm-toolchain-precise main\n" >> /etc/apt/sources.list
+  -echo -e "# 3.6\n" "deb http://apt.llvm.org/precise/ llvm-toolchain-precise-3.6 main\n" "deb-src http://apt.llvm.org/precise/ llvm-toolchain-precise-3.6 main\n" >> /etc/apt/sources.list
   - wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
-
-# update apt with all the new llvm stuff
   - apt-get update
-
 script:
   - ls
   - clang++-3.6 test.cpp
