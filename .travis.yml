@@ -5,11 +5,22 @@ language: generic
 git:
   depth: 1
 before_install:
-  - echo "yes" | sudo add-apt-repository 'deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu precise main'
-  - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/precise/ llvm-toolchain-precise-3.6 main'
-  - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq -y llvm-3.6-dev clang-3.6
+
+# add llvm to apt
+  -echo -e "deb http://apt.llvm.org/precise/ llvm-toolchain-precise main\n" \
+    "deb-src http://apt.llvm.org/precise/ llvm-toolchain-precise main\n" >> /etc/apt/sources.list
+  
+# add llvm 3.6 to apt
+  -echo -e "# 3.6\n" \
+    "deb http://apt.llvm.org/precise/ llvm-toolchain-precise-3.6 main\n" \
+    "deb-src http://apt.llvm.org/precise/ llvm-toolchain-precise-3.6 main\n" >> /etc/apt/sources.list
+  
+# add llvm's key to apt
+  - wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+
+# update apt with all the new llvm stuff
+  - apt-get update
+
 script:
   - ls
   - clang++-3.6 test.cpp
