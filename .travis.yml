@@ -9,6 +9,8 @@ before_install:
   - curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
   - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/precise/ llvm-toolchain-precise-3.6 main'
   - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
+  - sudo apt-get update
+  - sudo apt-get install clang-3.6
 script:
   - ls
   - clang++-3.6 test.cpp
