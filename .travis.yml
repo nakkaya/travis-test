@@ -10,7 +10,7 @@ before_install:
   - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/precise/ llvm-toolchain-precise-3.6 main'
   - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
   - sudo apt-get update
-  - sudo apt-get install clang-3.6
+  - sudo apt-get install llvm-3.6-dev clang-3.6
 script:
   - ls
   - clang++-3.6 test.cpp
