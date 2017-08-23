@@ -9,19 +9,6 @@ branches:
     - master
 script:
   # Build and Test Ferret
-  - docker run --rm -i -t -v "$(pwd)":/src/ -w /src/ nakkaya/ferret-build /bin/bash -c './build && cd src/ && lein test'
-  - docker run --rm -i -t -v "$(pwd)":/src/ -w /src/ nakkaya/ferret-build /bin/bash ./src/resources/platform_builds.sh  
-before_deploy:
-  # Prepare Platform Releases
-  - cd ../
-  - mkdir release
-  - mkdir release/builds/
-  # Move Packages to builds/
-  - mv ferret release/builds/
-  - cp src/target/ferret.jar release/builds/ferret-`git rev-parse --short HEAD`.jar
-  - mv src/target/ferret.jar release/builds/
-  - mv src/ferret-linux-amd64.zip release/builds/
-  - mv src/ferret-macosx-x86_64.zip release/builds/
-  - mv src/ferret-windows-amd64.zip release/builds/
-  - mv ferret-manual.html release/index.html
-  - mv org-mode-assets release/ferret-styles
+  - make release
+  - ls release/
+  - ls release/builds/
