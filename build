@@ -28,7 +28,7 @@ emacs -nw -Q --batch --eval "
  (require 'ob)
  (global-font-lock-mode 1)
  (require 'clojure-mode)
- (require 'clojure-mode-extra-font-locking)
+ ;;(require 'clojure-mode-extra-font-locking)
  (setq org-export-with-section-numbers nil)
  (setq org-babel-use-quick-and-dirty-noweb-expansion t)
 
