@@ -6408,7 +6408,7 @@ Static code analysis (cppcheck) options,
     
     (let [a 1
           b 2]
-      (is (= 3 (+ a b))))
+      (is (= 4 (+ a b))))
 
     (let [a 1
           b 2
