@@ -10,9 +10,9 @@ branches:
 script:
   # Build and Test Ferret
   - docker run --rm -i -t -v "$(pwd)":/src/ -w /src/ nakkaya/ferret-build /bin/bash -c './build && cd src/ && lein test'
-before_deploy:
-  # Prepare Platform Releases
   - docker run --rm -i -t -v "$(pwd)":/src/ -w /src/ nakkaya/ferret-build /bin/bash ./src/resources/platform_builds.sh
+  before_deploy:
+  # Prepare Platform Releases
   - cd ../
   - mkdir release
   - mkdir release/builds/
