@@ -2,8 +2,6 @@ sudo: required
 services:
   - docker
 language: generic
-git:
-  depth: 1
 branches:
   only:
     - master
