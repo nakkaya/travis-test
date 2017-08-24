@@ -10,7 +10,4 @@ install:
   - cd $TRAVIS_REPO_SLUG
   - git checkout -qf $TRAVIS_COMMIT
 script:
-  # Build and Test Ferret
-  - git fetch --unshallow --tags
-  - git describe --abbrev=0 --tags
   - make dummy
