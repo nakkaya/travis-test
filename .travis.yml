@@ -7,4 +7,5 @@ branches:
     - master
 script:
   # Build and Test Ferret
+  - git fetch -t
   - make dummy
