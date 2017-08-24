@@ -9,6 +9,4 @@ branches:
     - master
 script:
   # Build and Test Ferret
-  - make docker-release
-  - ls release/
-  - ls release/builds/
+  - make dummy
